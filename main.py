@@ -112,15 +112,27 @@ async def Mines(ctx, game_id: str, clicks:int):
             includes_dash = False
             includes_number1 = ""
             includes_number2 = ""
+            l = [14,15,16]
+            l2 = [18,19,20,21,22]
+            lsu = False
             for v in game_id:
                 count += 1
                 if count == 9:
                     if v == "-":
                         includes_dash = True
-                if count == 15:
-                    includes_number1 += v
-                if count == 22:
-                    includes_number2 +=v
+                if count in l:
+                    if v == "4":
+                        includes_number1 += v
+                if count in l:
+                    try:
+                        int(v)
+                        if lsu == True:
+                            continue
+                        else:
+                            includes_number2 +=v
+                            lsu = True
+                    except ValueError:
+                        continue
             if includes_dash == True:
                 if includes_number1 == "4":
                     try:
@@ -170,15 +182,27 @@ async def Towers(ctx, game_id: str, rows:int):
             includes_dash = False
             includes_number1 = ""
             includes_number2 = ""
+            l = [14,15,16]
+            l2 = [18,19,20,21,22]
+            lsu = False
             for v in game_id:
                 count += 1
                 if count == 9:
                     if v == "-":
                         includes_dash = True
-                if count == 15:
-                    includes_number1 += v
-                if count == 22:
-                    includes_number2 +=v
+                if count in l:
+                    if v == "4":
+                        includes_number1 += v
+                if count in l:
+                    try:
+                        int(v)
+                        if lsu == True:
+                            continue
+                        else:
+                            includes_number2 +=v
+                            lsu = True
+                    except ValueError:
+                        continue
             if includes_dash == True:
                 if includes_number1 == "4":
                     try:
